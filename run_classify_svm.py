@@ -39,6 +39,9 @@ print(test_y)
 
 clf2 = SVC(kernel='rbf', C=5, gamma=0.2)
 
+param_range = [0.000001,0.00001,0.0001,0.001,0.01,0.1,1.0,10.0,100.0,1000.0,10000.0,100000.0]
+params = [{"svc__C":param_range, "svc__kernel":["linear"]},{"svc__C":param_range, "svc__gammma":param_range, "svc__kernel":["rbf"]}]
+
 gs = GridSearch CV(clf2,param_grid = params, scoring = "accuracy", cv = 79, n_jobs = -1)
 
 scores = cross_val_score(clf2, all_X, all_y)
