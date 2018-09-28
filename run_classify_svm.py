@@ -30,8 +30,7 @@ train_X, test_X, train_y, test_y = train_test_split(all_X, all_y,
                                                     test_size=0.2,
                                                     random_state=41)
 
-params = {
-	"C": 
+ 
 
 print(train_X)
 print(test_X)
@@ -39,6 +38,8 @@ print(train_y)
 print(test_y)
 
 clf2 = SVC(kernel='rbf', C=5, gamma=0.2)
+
+gs = GridSearch CV(clf2,param_grid = params, scoring = "accuracy", cv = 79, n_jobs = -1)
 
 scores = cross_val_score(clf2, all_X, all_y)
 print("Cross-Validation scores:{}".format(scores))
