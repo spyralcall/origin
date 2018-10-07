@@ -22,7 +22,13 @@ X_train_tfidf = X_train_tfidf.toarray()
 all_X = X_train_tfidf
 all_y = np.loadtxt('only_suuti_label.csv', delimiter = '\n', dtype = float)
 print(all_y)
+<<<<<<< HEAD
 
+=======
+print(type(all_X))
+print(type(all_y))
+print(all_X.shape)
+>>>>>>> d59237c4c37d1e56b4054dacd1932f01a83b1351
 
 train_X, test_X, train_y, test_y = train_test_split(all_X, all_y,
                                                     test_size=0.2,
@@ -33,10 +39,14 @@ clf2 = SVC()
 param_range = [0.000001,0.00001,0.0001,0.001,0.01,0.1,1.0,10.0,100.0,1000.0,10000.0,100000.0]
 params = [{"svc__C":param_range, "svc__kernel":["linear"]},{"svc__C":param_range, "svc__gammma":param_range, "svc__kernel":["rbf"]}]
 
+<<<<<<< HEAD
 gs = GridSearchCV(estimator = clf2, param_grid = params, scoring = "accuracy", cv = 2, n_jobs = -1)
 gs = gs.fit(all_X, all_y)
 print(gs.best_score_)
 print(gs.best_params_)
+=======
+gs = GridSearchCV(clf2,param_grid = params, scoring = "accuracy", cv = 79, n_jobs = -1)
+>>>>>>> d59237c4c37d1e56b4054dacd1932f01a83b1351
 
 scores = cross_val_score(clf2, all_X, all_y)
 print("Cross-Validation scores: {}".format(scores))
