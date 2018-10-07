@@ -7,8 +7,8 @@ from sudachipy import tokenizer
 from sudachipy import dictionary
 from sudachipy import config
 
-if not os.path.exists('result_kujou_sud'):
-	os.mkdir('result_kujou_sud')
+if not os.path.exists('result_kujou_sud_2'):
+	os.mkdir('result_kujou_sud_2')
 
 #辞書の設定
 with open(config.SETTINGFILE,"r", encoding="utf-8") as f:
@@ -33,7 +33,7 @@ def wakati_by_sudachi(text,writer):
 
 
 #データを分かち書きしていく
-for file in os.listdir('kujou'):
-	with open('kujou/' + file , 'rt') as reader, open('result_kujou_sud/' + file, 'wt') as writer:
+for file in os.listdir('kujou_2'):
+	with open('kujou_2/' + file , 'rt') as reader, open('result_kujou_sud_2/' + file, 'wt') as writer:
 		for lines in reader:
 			wakati = wakati_by_sudachi(lines,writer) 
